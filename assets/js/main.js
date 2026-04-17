@@ -68,7 +68,7 @@ if(form){
 
 (function(){
   const path = window.location.pathname;
-  const isHome = /(^\/$|lander\.html$)/.test(path);
+  const isHome = /(^\/$|promt\.html$)/.test(path);
   if(!isHome) return;
  
   const bd = document.createElement('div');
