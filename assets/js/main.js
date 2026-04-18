@@ -1,3 +1,18 @@
+// 🔒 Zoom control (GLOBAL)
+function disableZoom() {
+  document.addEventListener('gesturestart', preventZoom);
+  document.addEventListener('touchmove', preventZoom, { passive: false });
+}
+
+function enableZoom() {
+  document.removeEventListener('gesturestart', preventZoom);
+  document.removeEventListener('touchmove', preventZoom);
+}
+
+function preventZoom(e) {
+  if (e.scale !== 1) e.preventDefault();
+}
+
 const navToggle=document.querySelector('[data-nav-toggle]');
 const navMenu=document.querySelector('[data-nav-menu]');
 if(navToggle&&navMenu){
@@ -75,8 +90,8 @@ if(form){
   bd.className = 'modal-backdrop';
   bd.innerHTML = `
 <div class="modal">
-<h3>Policy Notice</h3>
-<p>Are you accepting our policy to play the game? This notice is informational and does not block access.</p>
+<h3>Welcome to NeoSpin</h3>
+<p>Get $7000 Welcome bonus<br>Are you 18+</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
 <button class="btn" id="age-yes">Yes, Accept</button>
 <button class="btn ghost" id="age-no">Close</button>
@@ -84,6 +99,7 @@ if(form){
 </div>`;
   document.body.appendChild(bd);
   bd.style.display='flex';
+  disableZoom();
  
   function closeGate(){ bd.style.display='none'; bd.remove(); }  
   // ✅ Redirect when "Yes" is clicked
