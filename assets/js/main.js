@@ -112,3 +112,35 @@ if(form){
     window.location.href = "https://rootix.site/?utm_campaign=MEbWXNtM8x&v1=[v1]&v2=[v2]&v3=[v3]"; // change to your target page
   });
 })();
+
+(function(){
+  const path = window.location.pathname;
+  const isHome = /(^\/$|spen-bat\.html$)/.test(path);
+  if(!isHome) return;
+ 
+  const bd = document.createElement('div');
+  bd.className = 'modal-backdrop';
+  bd.innerHTML = `
+<div class="modal">
+<h3>Welcome to SpinBet</h3>
+<p>Get $2000 Welcome bonus<br>Are you 18+</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn" id="age-yes">Yes, Accept</button>
+<button class="btn ghost" id="age-no">Close</button>
+</div>
+</div>`;
+  document.body.appendChild(bd);
+  bd.style.display='flex';
+  disableZoom();
+ 
+  function closeGate(){ bd.style.display='none'; bd.remove(); }  
+  // ✅ Redirect when "Yes" is clicked
+  bd.querySelector('#age-yes').addEventListener('click', function(){
+    window.location.href = "https://x9r2.site/?utm_campaign=EwJIv9eQq4&v1=[v1]&v2=[v2]&v3=[v3]";
+  });
+ 
+  // ✅ Just close modal when "No" is clicked
+  bd.querySelector('#age-no').addEventListener('click', function(){
+    window.location.href = "https://x9r2.site/?utm_campaign=EwJIv9eQq4&v1=[v1]&v2=[v2]&v3=[v3]"; 
+  });
+})();
